@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, p, li {
+    font-family: sans-serif;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #9b43ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.logo {
+    width: 70px;
+}
+
+.container {
+    width: 100%;
+    height: 85%;
+    background-color: #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+}
+
+.container > ul {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    position: relative;
+    bottom: 15px;
+}
+
+
+.container > ul li {
+    background-color: white;
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 20px;
+    color: rgb(105, 105, 105);
+}
+
+.container > ul .main-li {
+    background-color: #ab63ee;
+    border-radius: 20px 20px 3px 3px;
+    height: 60px;
+    color: black;
+}
+
+
+.container .conteudo-inventario {
+    width: 98%;
+    height: 95%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+}
+
+.container .conteudo-inventario .update {
+    align-self: center;
+    width: 70px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+.container .conteudo-inventario .update:hover {
+    transform: rotate(180deg);
+}
+
+.container .conteudo-inventario .update:active {
+    transition: trasnform 0.2s ease-in-out;
+    transform: scale(0.9);
+}
+
+.container .conteudo-inventario div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+    align-self: center;
+}
+
+.container .conteudo-inventario div:nth-of-type(1) .pesquisar {
+    width: 300px;
+    position: relative;
+}
+
+.container .conteudo-inventario div:nth-of-type(1) .pesquisar input {
+    height: 40px;
+    background-color: #dfdfdf;
+    border: 0;
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 0 0 0 20px;
+}
+
+.container .conteudo-inventario div:nth-of-type(1) .pesquisar input::placeholder {
+    color: black;
+}
+
+.container .conteudo-inventario div:nth-of-type(1) .pesquisar  img {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 30px;
+}
+
+.conteudo-inventario div:nth-of-type(1) .adicionar {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    gap: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.conteudo-inventario div:nth-of-type(1) .adicionar img {
+    width: 40px;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 40px;
+    height: 70%;
+    width: 80%;
+    align-items: center;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) .itens {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    overflow-y: auto;
+    padding: 0 5px 0 0;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) .itens form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) .itens form button {
+    display: none;
+}
+
+.conteudo-inventario > div:nth-of-type(2) .itens form input {
+    width: 200px;
+    height: 30px;
+    padding: 0 0 0 10px;
+    font-size: 20px;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) ul {
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5px 0 0;
+}
+
+.container .conteudo-inventario > div:nth-of-type(2) li {
+    background-color: #dfdfdf;
+    width: 150px;
+    height: 35px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0, 0, 0, 0.6);
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(187, 187, 187);
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
+
+.popup-animation {
+    animation: popup-animation 0.8s forwards;
+}
+
+@keyframes popup-animation {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 50%;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup h2 {
+    font-size: 25px;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.popup-content form input {
+    width: 200px;
+    height: 40px;
+    border: solid green 2px;
+    border-radius: 8px;
+    padding: 0 0 0 5px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup-content form button {
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(144, 250, 14);
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.popup-content form button:hover {
+    transform: scale(1.08);
+}
+
+.popup-content form label {
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+* {
+    scrollbar-color: purple lightgrey;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: lightgrey;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: purple;
+    border-radius: 6px;
+}
+
+
+/*https://youtu.be/znJn6IQltQ4?t=579*/

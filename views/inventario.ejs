@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="/css/inventario.css">
+</head>
+<body class="body">
+    <img src="/images/logo.png" alt="" class="logo">
+
+    <div class="container">
+
+        <ul>
+            <li>PEDIDOS</li>
+            <li class="main-li">INVENTÁRIO</li>
+            <li>RELATÓRIOS</li>
+        </ul>
+
+        <div class="conteudo-inventario">
+
+           <div>
+            <div class="pesquisar">
+                <input type="text" placeholder="Pesquisar">
+                <img src="/images/lupa.png" alt="">
+            </div>
+
+            <div class="adicionar">
+                <img src="/images/adicionar.png" alt="">
+                <p>Adicionar</p>
+            </div>
+
+            <img src="/images/update.png" alt="" class="update">
+
+           </div>
+
+            <div>
+                <ul>
+                    <li>NOME</li>
+                    <li>LAB</li>
+                    <li>ESTOQUE</li>
+                </ul>
+
+                <div class="itens">
+                    <% equipamentos.forEach(equipamento => { %>
+                        <form id="<%= equipamento.id%> ">
+                            <input type="text" value="<%= equipamento.nome %>" id="nome">
+                            <input type="number" value="<%= equipamento.quantidade_lab %>" id="laboratorio">
+                            <input type="number" value="<%= equipamento.quantidade_almox %>" id="estoque">
+                            <button type="submit"></button>
+                        </form>
+                    <% }) %>
+                </div>                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wrapper d-none">
+        <div id="meuPopup" class="popup d-none">
+            <div class="popup-content">
+                <h2>Adicionar</h2>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <br>
+                    <label for="quantidadeLab">Quantidade Laboratório:</label>
+                    <input type="number" id="quantidadeLab" name="quantidadeLab" required>
+                    <br>
+                    <label for="quantidadeEstoque">Quantidade Estoque:</label>
+                    <input type="number" id="quantidadeEstoque" name="quantidadeEstoque" required>
+                    <br>
+                    <button type="submit">Enviar</button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/inventario.js"></script>
+</body>
+</html>
